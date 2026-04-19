@@ -394,7 +394,7 @@ html {
     left: -2.5vw; 
     right: -2.5vw; 
     bottom: -3.0vw;
-    background-image: url('/assets/pngs/handdrawn-hover.png');
+    background-image: url('./assets/pngs/handdrawn-hover.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     opacity: 0;
@@ -423,8 +423,8 @@ html {
     width: 30px;
     height: 30px;
     background-color: var(--black-color); 
-    -webkit-mask: url('assets/svgs/icon-github.svg') no-repeat center / contain;
-    mask: url('assets/svgs/icon-github.svg') no-repeat center / contain;
+    -webkit-mask: url('./assets/svgs/icon-github.svg') no-repeat center / contain;
+    mask: url('./assets/svgs/icon-github.svg') no-repeat center / contain;
 }
 
 /* Repo Links */

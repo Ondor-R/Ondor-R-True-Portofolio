@@ -55,11 +55,11 @@ socialIcons.forEach((icon) => {
 
 //--------------------------------------------------------------BOOKIE IMG AT FOOTER//
 bookieImg.addEventListener('mouseover', () => {
-    bookieImg.src = 'assets/pngs/bookie-1.png';
+    bookieImg.src = './assets/pngs/bookie-1.png';
 })
 
 bookieImg.addEventListener('mouseout', () => {
-    bookieImg.src = 'assets/pngs/bookie-0.png';
+    bookieImg.src = './assets/pngs/bookie-0.png';
 })
 
 bookieImg.addEventListener('click', () => {
