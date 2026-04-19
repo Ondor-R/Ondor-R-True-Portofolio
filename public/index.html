@@ -4,32 +4,41 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ondor-R</title>
-        <link rel="stylesheet" href="style.css"> <!-- Local CSS (e.g. Tailwind CSS) -->
-        <link rel="stylesheet" href="/style.css"> <!-- CSS File -->
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="/style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=League+Gothic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-        <!-- Tailwind CSS CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
 
-        <!------------------------------------------------------header-->
+        <!----------------------------------------------------------------------------------------------------------------------------------------------- HEADER (navbar)-->
         <header id="page-header">
             <div class="head-bar w-full h-20 flex items-center">
                 <div class="icon-medsos-group flex gap-5">
-                    <a href="#" class="img-medsos"><img src="../assets/svgs/icon-github.svg" alt="GitHub" class="icon-medsos h-6 w-6"></a>
-                    <a href="#" class="img-medsos"><img src="../assets/svgs/icon-instagram.svg" alt="Instagram" class="icon-medsos h-6 w-6"></a>
-                    <a href="#" class="img-medsos"><img src="../assets/svgs/icon-youtube.svg" alt="YouTube" class="icon-medsos h-6 w-6"></a>
+                    <a href="https://github.com/Ondor-R" class="img-medsos"><img src="../assets/svgs/icon-github.svg" alt="GitHub" class="icon-medsos h-6 w-6"></a>
+                    <a href="https://www.instagram.com/moonbruh_/" class="img-medsos"><img src="../assets/svgs/icon-instagram.svg" alt="Instagram" class="icon-medsos h-6 w-6"></a>
+                    <a href="https://www.youtube.com/@reyhanoktavian9808" class="img-medsos"><img src="../assets/svgs/icon-youtube.svg" alt="YouTube" class="icon-medsos h-6 w-6"></a>
                 </div>
                 <img src="../assets/svgs/logo.svg" alt="Logo" class="h-10 absolute left-1/2 transform -translate-x-1/2">
             </div>
+            
+            <div class="burger-icon absolute right-5" id="burger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+            
+            <nav class="side-nav" id="side-nav">
+                <a href="#design-section" class="font-league-gothic nav-link">DESIGN</a>
+                <a href="#art-section" class="font-league-gothic nav-link">ART</a>
+                <a href="#github-section" class="font-league-gothic nav-link">GITHUB</a>
+                <a href="#aboutme-section" class="font-league-gothic nav-link">About Me</a>
+            </nav>
         </header>
 
-        <!------------------------------------------------------main content-->
         <main>
-            <!--hero section-->
+            <!----------------------------------------------------------------------------------------------------------------------------------------------- Hero Section -->
             <section id="hero-section" class="hero-background relative w-full min-h-[300px] flex flex-col justify-center">
                 <div class="relative z-10 max-w-4xl mx-auto px-4 text-center py-10 -translate-y-5">
                     <div id="hero-left-text">
@@ -42,61 +51,120 @@
                 </div>
             </section>
 
-            <!--graphic design section-->
-            <section class="content-section">
+            <!----------------------------------------------------------------------------------------------------------------------------------------------- Design Section -->
+            <section class="content-section" id="design-section">
                 <div class="content-header">
                     <span>Graphic</span>
                     <h1 class="font-league-gothic">DESIGN</h1>
                 </div>
-                <div class="grid-toolbar">
-                    <a href="#" class="see-all">See all</a>
-                </div>
                 <div class="graphic-design-grid-container">
-                    <div class="grid-item item-1"></div>
-                    <div class="grid-item item-2"></div>
-                    <div class="grid-item item-3"></div>
-                    <div class="grid-item item-4"></div>
-                    <div class="grid-item item-5"></div>
+                    <div class="grid-item item-1">
+                        <img src="../contents/designs/gd-skullknight.webp" alt="Design 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid-item item-2">
+                        <img src="../contents/designs/griffithdream.webp" alt="Design 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid-item item-3">
+                        <img src="../contents/designs/guts-gold.webp" alt="Design 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid-item item-4">
+                        <img src="../contents/designs/kuririn.webp" alt="Design 4" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid-item item-5">
+                        <img src="../contents/designs/gd-ondor-r.webp" alt="Design 5" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </section>
 
-            <!--art section-->
-            <section class="content-section">
+            <!----------------------------------------------------------------------------------------------------------------------------------------------- Art Section -->
+            <section class="content-section" id="art-section">
                 <div class="content-header">
                     <span>My</span>
                     <h1 class="font-league-gothic">ART</h1>
                 </div>
-                <div class="grid-toolbar">
-                    <a href="#" class="see-all">See all</a>
-                </div>
                 <div class="art-grid-container">
-                    <div class="grid-item item-1"></div>
-                    <div class="grid-item item-2"></div>
-                    <div class="grid-item item-3"></div>
+                    <div class="grid-item item-1">
+                        <img src="../contents/arts/hans.webp" alt="Art 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid-item item-2">
+                        <img src="../contents/arts/misty.webp" alt="Art 2" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </section>
 
-            <!--github section-->
-            <section class="content-section">
+            <!----------------------------------------------------------------------------------------------------------------------------------------------- Github Section -->
+            <section class="content-section" id="github-section">
                 <div class="content-header">
                     <span>Repo</span>
                     <h1 class="font-league-gothic">GITHUB</h1>
                 </div>
-                <div class="grid-toolbar">
-                    <a href="#" class="see-all">See all</a>
-                </div>
                 <div class="github-grid-container">
-                    <div class="grid-item item-1"></div>
-                    <div class="grid-item item-2"></div>
-                    <div class="grid-item item-3"></div>
-                    <div class="grid-item item-4"></div>
-                    <div class="grid-item item-5"></div>
-                    <div class="grid-item item-6"></div>
+
+                    <div class="repo-container">
+                        <div class="repo-head">
+                            <div class="repo-github-mask"></div>
+                            <h3 class="font-space-grotesk font-bold">The Time Weaver</h3>
+                        </div>
+                        <p class="font-space-grotesk">"The Time Weaver" - is a platformer game with a souls-like element. In this game, player will play as the time weaver, someone from the future who tried to prevent calamity by time traveling to the past and tried to weave a timeline that shouldn’t happening in the first place. This Repo is the final project for my Object-Oriented Programming Subject.</p>
+                        <a href="https://github.com/Ondor-R/The-Time-Weaver" target="_blank" class="repo-link font-space-grotesk">
+                            View on Github 
+                            <span class="text-xl leading-none">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <div class="repo-container">
+                        <div class="repo-head">
+                            <div class="repo-github-mask"></div>
+                            <h3 class="font-space-grotesk font-bold">Ondor-R Portofolio (Old)</h3>
+                        </div>
+                        <p class="font-space-grotesk">This is a personal site I created using HTML/CSS/JS to learn how to make a website. Can be used as an actual portofolio site too I guess. This is an old version of my portfolio site.</p>
+                        <a href="https://github.com/Ondor-R/Ondor-R-Portofolio" target="_blank" class="repo-link font-space-grotesk">
+                            View on Github 
+                            <span class="text-xl leading-none">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <div class="repo-container">
+                        <div class="repo-head">
+                            <div class="repo-github-mask"></div>
+                            <h3 class="font-space-grotesk font-bold">Soulless Chatbox</h3>
+                        </div>
+                        <p class="font-space-grotesk">This project created as a way for me to learn how to integrate AI chatbox in a website. Soulless is an AI chatbox site. The use of this site is to provide an interactive, AI-powered expert for chosen souls games.</p>
+                        <a href="https://github.com/Ondor-R/Soulless-Chatbox" target="_blank" class="repo-link font-space-grotesk">
+                            View on Github 
+                            <span class="text-xl leading-none">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <div class="repo-container">
+                        <div class="repo-head">
+                            <div class="repo-github-mask"></div>
+                            <h3 class="font-space-grotesk font-bold">Op-timis Inventory Management System</h3>
+                        </div>
+                        <p class="font-space-grotesk">Op-timis Inventory adalah sistem aplikasi web yang dirancang untuk membantu pengelolaan stok barang, manajemen supplier, dan pelacakan transaksi barang masuk/keluar. This Repo is the final project for my Web Application Development Subject.</p>
+                        <a href="https://github.com/Ondor-R/uas-paw-kelompok-op-timis" target="_blank" class="repo-link font-space-grotesk">
+                            View on Github 
+                            <span class="text-xl leading-none">&rarr;</span>
+                        </a>
+                    </div>
+
+                    <div class="repo-container">
+                        <div class="repo-head">
+                            <div class="repo-github-mask"></div>
+                            <h3 class="font-space-grotesk font-bold">Prototype Sehatin - Aplikasi Interaktif Pemantau Kesehatan Mental</h3>
+                        </div>
+                        <p class="font-space-grotesk">Repo ini merupakan prototype aplikasi Sehatin, aplikasi mobile yang dirancang sebagai solusi komprehensif untuk kesehatan mental dengan fitur utama monitoring, telemedicine, dan edukasi. This Repo is the final project for my Interaction Design Subject.</p>
+                        <a href="https://github.com/Ondor-R/uas-paw-kelompok-op-timis" target="_blank" class="repo-link font-space-grotesk">
+                            View on Github 
+                            <span class="text-xl leading-none">&rarr;</span>
+                        </a>
+                    </div>
+
                 </div>
             </section>
 
-            <!--about me section-->
-            <section class="aboutme-section">
+            <!----------------------------------------------------------------------------------------------------------------------------------------------- About Me Section -->
+            <section class="aboutme-section" id="aboutme-section">
                 <div class="aboutme-header">
                     <h1 class="font-league-gothic">ABOUT <span class="font-amatic-sc">ME</span></h1>
                 </div>
@@ -113,14 +181,14 @@
             </section>
         </main>
 
-        <!------------------------------------------------------footer-->
+        <!----------------------------------------------------------------------------------------------------------------------------------------------- Footer -->
         <footer>
             <div class="footer-bar flex-col justify-center">
                 <div class="flex justify-between items-center w-[90vw] mx-auto py-2">
                     <div class="icon-medsos-group flex gap-5">
-                        <a href="#" class="img-medsos"><img src="../assets/svgs/icon-github.svg" alt="GitHub" class="icon-medsos h-6 w-6"></a>
-                        <a href="#" class="img-medsos"><img src="../assets/svgs/icon-instagram.svg" alt="Instagram" class="icon-medsos h-6 w-6"></a>
-                        <a href="#" class="img-medsos"><img src="../assets/svgs/icon-youtube.svg" alt="YouTube" class="icon-medsos h-6 w-6"></a>
+                        <a href="https://github.com/Ondor-R" class="img-medsos"><img src="../assets/svgs/icon-github.svg" alt="GitHub" class="icon-medsos h-6 w-6"></a>
+                        <a href="https://www.instagram.com/moonbruh_/" class="img-medsos"><img src="../assets/svgs/icon-instagram.svg" alt="Instagram" class="icon-medsos h-6 w-6"></a>
+                        <a href="https://www.youtube.com/@reyhanoktavian9808" class="img-medsos"><img src="../assets/svgs/icon-youtube.svg" alt="YouTube" class="icon-medsos h-6 w-6"></a>
                     </div>
                     <img src="../assets/pngs/chromatic.png" alt="Chromatic" class="img-chromatic h-8">
                 </div>
@@ -140,6 +208,14 @@
                 </div>
             </div>
         </footer>
+
+        <!----------------------------------------------------------------------------------------------------------------------------------------------- Modal -->
+        <div id="my_modal" class="modal_">
+            <div class="modal-image-wrapper">
+                <span class="close-button">&times;</span>
+                <img class="modal-content" id="img" src="#" alt="Modal Image">
+            </div>      
+        </div>
 
         <script src="script.js"></script>
     </body>

@@ -15,7 +15,7 @@ function updateRotation() {
         const elementCenter = rect.top + (rect.height / 2);
         const distance = elementCenter - windowCenter;
 
-        // THIS IS WHERE YOU CAN ADJUST ROTATION SPEED
+        // ADJUST ROTATION SPEED
         let rotation = (distance / windowCenter) * 5;
 
         span.style.transform = `rotate(${rotation * -1}deg)`;
@@ -67,4 +67,49 @@ bookieImg.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
+});
+
+//--------------------------------------------------------------BURGER MENU LOGIC//
+const burgerMenu = document.getElementById('burger-menu');
+const sideNav = document.getElementById('side-nav');
+const navLinks = document.querySelectorAll('.nav-link');
+
+// Toggle menu open/close
+burgerMenu.addEventListener('click', () => {
+    burgerMenu.classList.toggle('active');
+    sideNav.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        burgerMenu.classList.remove('active');
+        sideNav.classList.remove('active');
+    });
+});
+
+//--------------------------------------------------------------MODAL LOGIC//
+const modal = document.getElementById("my_modal");
+const modalImg = document.getElementById("img");
+const closeBtn = document.querySelector('.close-button');
+
+// Automatically grab all images inside the Design and Art containers
+const galleryImages = document.querySelectorAll(".graphic-design-grid-container img, .art-grid-container img");
+
+galleryImages.forEach(img => {
+    img.addEventListener('click', function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    });
+});
+
+closeBtn.addEventListener('click', function() {
+    modal.style.display = "none";
+});
+
+// Close modal when clicking the dark background
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 });

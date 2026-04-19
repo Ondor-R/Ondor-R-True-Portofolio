@@ -1,21 +1,61 @@
-/*--------------------------------------------------------------Global's bs*/
-.font-league-gothic {font-family: 'League Gothic', sans-serif;}
-.font-amatic-sc {font-family: 'Amatic SC', sans-serif;}
-.font-space-grotesk {font-family: 'Space Grotesk', sans-serif;}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* ==========================================================================
+   ONDOR-R PORTFOLIO STYLESHEET
+   ==========================================================================
+   Table of Contents:
+   01. Globals & Variables
+   02. Typography Utilities
+   03. Header & Navigation (Burger & Side Nav)
+   04. Hero Section
+   05. Shared Components (Section Headers, Grid Items, Overlays)
+   06. Graphic Design Layout
+   07. Art Layout
+   08. Github Repo Layout & Cards
+   09. About Me Section
+   10. Footer
+   11. Modal (Image Viewer)
+   12. Responsive / Mobile Styles
+   ========================================================================== */
+
+/* --- GOOGLE FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=League+Gothic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+
+/* ==========================================================================
+   01. GLOBALS & VARIABLES
+   ========================================================================== */
 :root {
     --black-color: #141414;
     --cyan-color: #03DADA;
     --white-color: #ECEAE9;
 }
 
-body {background-color: var(--white-color);}
-
-.img-medsos {
-    transition: filter 0.3s ease;
+body {
+    background-color: var(--white-color);
+    margin: 0; 
+    overflow-x: hidden; /* Prevent horizontal scrollbar from animations */
 }
 
-/*-------------------------------------------------------------------Header's bs*/
+/* Smooth Scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ==========================================================================
+   02. TYPOGRAPHY UTILITIES
+   ========================================================================== */
+.font-league-gothic { font-family: 'League Gothic', sans-serif; }
+.font-amatic-sc { font-family: 'Amatic SC', sans-serif; }
+.font-space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+
+
+/* ==========================================================================
+   03. HEADER & NAVIGATION
+   ========================================================================== */
 #page-header {
     position: fixed;
     top: 0;
@@ -28,26 +68,94 @@ body {background-color: var(--white-color);}
     transform: translateY(-100%);
 }
 
-.head-bar {background-color: var(--black-color);}
+.head-bar {
+    background-color: var(--black-color);
+    padding: 0 2%;
+}
 
-.icon-medsos-group {margin: 20px;}
+.icon-medsos-group .img-medsos {
+    transition: filter 0.3s ease;
+}
 
 .icon-medsos {
     width: 20px;
     height: 20px;
 }
 
-/*--------------------------------------------------------------Hero Section's bs*/
+/* --- Burger Icon --- */
+.burger-icon {
+    position: absolute;
+    right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2001; 
+    padding: 5px;
+}
+
+.burger-icon .bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--white-color);
+    margin: 6px 0;
+    transition: 0.3s ease-in-out;
+}
+
+/* Burger "X" Animation */
+.burger-icon.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.burger-icon.active .bar:nth-child(2) { opacity: 0; }
+.burger-icon.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/* --- Slide-out Side Menu --- */
+.side-nav {
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    width: 250px;
+    height: 100vh;
+    background-color: var(--black-color);
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    align-items: center;
+    transition: right 0.3s ease-in-out;
+    z-index: 2000;
+    border-left: 1px solid var(--cyan-color);
+}
+
+.side-nav.active {
+    right: 0;
+}
+
+.side-nav a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 15px 0;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.side-nav a:hover {
+    color: var(--cyan-color);
+}
+
+
+/* ==========================================================================
+   04. HERO SECTION
+   ========================================================================== */
 .hero-text-h1 {
     font-family: 'League Gothic', sans-serif;
     font-size: 5rem;
     color: var(--black-color);
+    line-height: 1;
 }
 
 .hero-text-p {
     font-family: 'League Gothic', sans-serif;
     font-size: 2.5rem;
     color: var(--black-color);
+    line-height: 1.2;
 }
 
 .hero-text-p span {
@@ -55,14 +163,13 @@ body {background-color: var(--white-color);}
 }
 
 .hero-background {
-    background-image: url('../assets/svgs/lines.svg');
+    background-image: url('/assets/svgs/lines.svg');
     background-repeat: repeat; 
     background-size: auto 300px; 
     background-position: center top; 
     margin: 200px 0;
 }
 
-/*------Dynamic Line Effect Code------*/
 .dynamic-line-container {
     position: relative;
     min-height: 400px;
@@ -85,11 +192,14 @@ body {background-color: var(--white-color);}
         transparent 1px,
         transparent 20px
     );
-
     background-size: 100% 20px; 
 }
 
-/*--------------------------------------------------------------CONTENT SECTIONS--------*/
+
+/* ==========================================================================
+   05. SHARED COMPONENTS
+   ========================================================================== */
+/* --- Section Wrappers --- */
 .content-section {
     background-color: var(--black-color);
     margin-top: 20vw;
@@ -97,6 +207,20 @@ body {background-color: var(--white-color);}
     position: relative;
 }
 
+.content-section::before {
+    content: '';
+    position: absolute;
+    top: -1vw; 
+    left: 0;
+    width: 100%;
+    height: 5vw; 
+    background-image: url('/assets/pngs/black-topborder.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    z-index: 5; 
+}
+
+/* --- Section Headers --- */
 .content-header {
     text-align: center;
     transform: translateY(-100%); 
@@ -104,21 +228,8 @@ body {background-color: var(--white-color);}
     z-index: 10;
 }
 
-.content-section::before {
-    content: '';
-    position: absolute;
-    top: -1vw; /* Adjust this value to control how far above the section the image starts */
-    left: 0;
-    width: 100%;
-    height: 5vw; /* Adjust this to the height of your black-topborder.png image */
-    background-image: url('../assets/pngs/black-topborder.png');
-    background-size: 100% 100%; /* Cover the area */
-    background-repeat: no-repeat;
-    z-index: 5; /* Set z-index lower than .content-header (which has z-index: 10) */
-}
-
 .content-header h1 {
-    font-size: 15vw; 
+    font-size: 10vw; 
     line-height: 1;
     color: var(--cyan-color);
     margin: 0;
@@ -128,22 +239,20 @@ body {background-color: var(--white-color);}
 
 .content-header span {
     display: block;
-    font-family: 'amatic SC', 'sans-serif';
-    font-size: 5vw;
+    font-family: 'Amatic SC', sans-serif;
+    font-size: 3vw;
     font-weight: bold;
     color: var(--black-color);
-
     position: absolute;
     width: 100%;
     left: 0;
-
-    top: -2.5vw;
+    top: -1vw;
     z-index: 2;
-
     transform-origin: 0 center;
     will-change: transform;
 }
 
+/* --- Toolbar & Buttons --- */
 .grid-toolbar {
     width: 90vw;
     margin: 0 auto;
@@ -153,18 +262,8 @@ body {background-color: var(--white-color);}
     z-index: 20;
 }
 
-.grid-item {
-  background-color: gray;
-}
-
-.grid-item:hover {
-    background-image: url(../assets/pngs/handdrawn-hover.png);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
 .see-all {
-font-family: 'Amatic SC', sans-serif;
+    font-family: 'Amatic SC', sans-serif;
     font-size: 2rem;
     font-weight: bold;
     color: var(--white-color);
@@ -176,113 +275,190 @@ font-family: 'Amatic SC', sans-serif;
     color: var(--cyan-color);
 }
 
-/*--------------------------------------------------------------Graphic Design Section's bs*/
+/* --- Base Grid Items (Art & Design) --- */
+.grid-item {
+    position: relative; 
+    z-index: 1; 
+    background-color: transparent; 
+}
+
+.grid-item::after {
+    content: '';
+    position: absolute;
+    top: -3.0vw; 
+    left: -2.5vw; 
+    right: -2.5vw; 
+    bottom: -3.0vw;
+    background-image: url('/assets/pngs/handdrawn-hover.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0;
+    pointer-events: none; 
+    z-index: 10;
+}
+
+.grid-item:hover::after {
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   06. GRAPHIC DESIGN LAYOUT
+   ========================================================================== */
 .graphic-design-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, minmax(20vw, auto));
-    gap: 0.5vw;
-    width: 90vw;
+    grid-auto-rows: 20vw; 
+    gap: 2.5vw; 
+    width: 80vw;
     max-width: none;
     margin: 0 auto;
 }
 
-.graphic-design-grid-container .item-1 {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-}
-
-.graphic-design-grid-container .item-2 {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-}
-
-.graphic-design-grid-container .item-3 {
-  grid-column: 2 / 3;
-  grid-row: 1 / 3;
-}
-
-.graphic-design-grid-container .item-4 {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-}
-
-.graphic-design-grid-container .item-5 {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-}
+.graphic-design-grid-container .item-1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+.graphic-design-grid-container .item-2 { grid-column: 1 / 2; grid-row: 2 / 3; }
+.graphic-design-grid-container .item-3 { grid-column: 2 / 3; grid-row: 1 / 3; }
+.graphic-design-grid-container .item-4 { grid-column: 3 / 4; grid-row: 1 / 2; }
+.graphic-design-grid-container .item-5 { grid-column: 3 / 4; grid-row: 2 / 3; }
 
 
-/*--------------------------------------------------------------Art Section's bs*/
+/* ==========================================================================
+   07. ART LAYOUT
+   ========================================================================== */
 .art-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, minmax(20vw, auto));
-    gap: 0.5vw;
-    width: 90vw;
+    grid-auto-rows: 20vw; 
+    gap: 2.5vw; 
+    width: 80vw;
     max-width: none;
     margin: 0 auto;
     margin-top: 0;
 }
 
-.art-grid-container .item-1 {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-}
+.art-grid-container .item-1 { grid-column: 1 / 2; grid-row: 1 / 3; }
+.art-grid-container .item-2 { grid-column: 2 / 2; grid-row: 1 / 3; }
+.art-grid-container .item-3 { grid-column: 3 / 3; grid-row: 1 / 3; }
 
-.art-grid-container .item-2 {
-  grid-column: 2 / 2;
-  grid-row: 1 / 3;
-}
 
-.art-grid-container .item-3 {
-  grid-column: 3 / 3;
-  grid-row: 1 / 3;
-}
-
-/*--------------------------------------------------------------Github Section's bs*/
+/* ==========================================================================
+   08. GITHUB REPO LAYOUT & CARDS
+   ========================================================================== */
 .github-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, minmax(20vw, auto));
-    gap: 0.5vw;
-    width: 90vw;
+    grid-auto-rows: 1fr;
+    gap: 2.5vw; 
+    width: 80vw; 
     max-width: none;
     margin: 0 auto;
     margin-top: 0;
 }
 
-.github-grid-container .item-1 {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+.github-grid-container .item-1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+.github-grid-container .item-2 { grid-column: 2 / 2; grid-row: 1 / 2; }
+.github-grid-container .item-3 { grid-column: 3 / 3; grid-row: 1 / 2; }
+.github-grid-container .item-4 { grid-column: 1 / 2; grid-row: 2 / 2; }
+.github-grid-container .item-5 { grid-column: 2 / 2; grid-row: 2 / 2; }
+.github-grid-container .item-6 { grid-column: 3 / 3; grid-row: 2 / 2; }
+
+/* --- Repo Cards --- */
+.repo-container {
+    background-color: var(--white-color);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; 
+    z-index: 1;
+    aspect-ratio: 1 / 1;
+    height: 100%;
 }
 
-.github-grid-container .item-2 {
-  grid-column: 2 / 2;
-  grid-row: 1 / 2;
+.repo-container p {
+    font-size: 1rem;
+    margin: 15px 0;
+    color: #555555;
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow-y: auto; 
+    padding-right: 5px; 
 }
 
-.github-grid-container .item-3 {
-  grid-column: 3 / 3;
-  grid-row: 1 / 2;
+/* Repo Card Hover Frame */
+.repo-container::after {
+    content: '';
+    position: absolute;
+    top: -3.0vw; 
+    left: -2.5vw; 
+    right: -2.5vw; 
+    bottom: -3.0vw;
+    background-image: url('/assets/pngs/handdrawn-hover.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0;
+    pointer-events: none; 
+    z-index: -1; 
 }
 
-.github-grid-container .item-4 {
-  grid-column: 1 / 2;
-  grid-row: 2 / 2;
+.repo-container:hover::after {
+    opacity: 1;
 }
 
-.github-grid-container .item-5 {
-  grid-column: 2 / 2;
-  grid-row: 2 / 2;
+/* Repo Header & SVG Mask */
+.repo-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.github-grid-container .item-6 {
-  grid-column: 3 / 3;
-  grid-row: 2 / 2;
+.repo-head h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--black-color);
 }
 
-/*--------------------------------------------------------------About Me Section's bs*/
+.repo-head .repo-github-mask {
+    width: 30px;
+    height: 30px;
+    background-color: var(--black-color); 
+    -webkit-mask: url('../assets/svgs/icon-github.svg') no-repeat center / contain;
+    mask: url('../assets/svgs/icon-github.svg') no-repeat center / contain;
+}
+
+/* Repo Links */
+.repo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: color 0.2s ease-in-out;
+}
+
+.repo-link:hover {
+    color: var(--cyan-color);
+}
+
+.repo-link span {
+    transition: transform 0.2s ease-in-out;
+}
+
+.repo-link:hover span {
+    transform: translateX(5px);
+}
+
+
+/* ==========================================================================
+   09. ABOUT ME SECTION
+   ========================================================================== */
+.aboutme-section {
+    background-color: var(--white-color); 
+}
+
 .aboutme-header {
     font-size: 15vw;
     line-height: 0.7;
@@ -302,27 +478,31 @@ font-family: 'Amatic SC', sans-serif;
     color: var(--black-color);
 }
 
-/*--------------------------------------------------------------footer's bs*/
+
+/* ==========================================================================
+   10. FOOTER
+   ========================================================================== */
 .footer-bar {
     background-color: var(--black-color);
     color: var(--white-color);
     margin-top: 50px;
     overflow: hidden;
+    padding-bottom: 20px;
 }
 
 .img-chromatic {
-    transform: translateY(-75%);
+    transform: translateY(-25%);
 }
 
 .img-bookie {
     width: 80px;
     margin-top: -20px;
-
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     transform-origin: center center;
     transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 50; 
 }
 
 .img-bookie:hover {
@@ -330,48 +510,121 @@ font-family: 'Amatic SC', sans-serif;
 }
 
 
+/* ==========================================================================
+   11. MODAL (IMAGE VIEWER)
+   ========================================================================== */
+.modal_ {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-image-wrapper {
+    position: relative;
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1080px;
+}
+
+.modal-content {
+    display: block;
+    width: 100%;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+.close-button {
+    position: absolute;
+    top: -40px; 
+    right: 0;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--cyan-color); 
+    text-decoration: none;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* Make grid images look clickable */
+.graphic-design-grid-container img,
+.art-grid-container img {
+    cursor: pointer;
+}
 
 
+/* ==========================================================================
+   12. RESPONSIVE / MOBILE STYLES
+   ========================================================================== */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+    .close-button {
+        top: -40px;
+        right: 10px;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*--------------------------------------------------------------Responsive Mobile*/
 @media screen and (max-width: 768px) {
+    /* Stack grids vertically */
     .graphic-design-grid-container,
     .art-grid-container,
     .github-grid-container {
-        /* Force the container to be 1 column only */
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         height: auto;
         width: 90%; 
-        display: flex; /* Flex is often safer for simple vertical stacking on mobile */
+        display: flex; 
         flex-direction: column;
-        gap: 20px;
+        gap: 35px;
     }
 
-    /* Reset the specific positioning for all items so they flow naturally */
-    .item-1, .item-2, .item-3, .item-4, .item-5, .grid-item {
-        grid-column: auto;
-        grid-row: auto;
-        height: 300px; /* Essential because your divs are empty */
-        width: 100%;   /* Ensure they fill the container */
-        background-color: gray; /* Ensure visibility */
+    /* Reset grid item placement */
+    .item-1, .item-2, .item-3, .item-4, .item-5, .item-6, .grid-item {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        height: 300px; 
+        width: 100%;
+        background-color: gray;
+    }
+    
+    /* Adjust About Me layout */
+    .aboutme-container {
+        grid-template-columns: 1fr;
+        padding: 5vw;
+    }
+    
+    .aboutme-text {
+        padding-left: 0;
+        padding-top: 20px;
+        font-size: 4vw; 
+    }
+    
+    /* Adjust Typography */
+    .hero-text-h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-text-p {
+        font-size: 1.5rem;
     }
 }
