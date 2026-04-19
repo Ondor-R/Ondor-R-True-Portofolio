@@ -229,7 +229,7 @@ html {
 }
 
 .content-header h1 {
-    font-size: 10vw; 
+    font-size: 14vw; 
     line-height: 1;
     color: var(--cyan-color);
     margin: 0;
@@ -240,7 +240,7 @@ html {
 .content-header span {
     display: block;
     font-family: 'Amatic SC', sans-serif;
-    font-size: 3vw;
+    font-size: 5vw;
     font-weight: bold;
     color: var(--black-color);
     position: absolute;
@@ -626,5 +626,52 @@ html {
     
     .hero-text-p {
         font-size: 1.5rem;
+    }
+
+    /* --- FOOTER MOBILE STACKING --- */
+    .footer-bar .justify-between {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .img-bookie {
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+        margin-top: 0 !important;
+    }
+
+    .img-bookie:hover {
+        transform: scale(1.15) rotate(-5deg) !important;
+    }
+
+    .img-chromatic {
+        transform: none !important;
+    }
+    
+    /* --- HEADER MOBILE STACKING --- */
+    .head-bar {
+        height: auto !important;
+        flex-direction: column !important;
+        padding: 15px 0 !important;
+        gap: 15px;
+    }
+
+    .head-bar > img[alt="Logo"] {
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+    }
+
+    .icon-medsos-group {
+        margin-left: 0 !important;
+        justify-content: center;
+    }
+
+    .burger-icon {
+        top: 35px !important;
+        transform: translateY(-50%) !important;
     }
 }
