@@ -423,8 +423,8 @@ html {
     width: 30px;
     height: 30px;
     background-color: var(--black-color); 
-    -webkit-mask: url('../assets/svgs/icon-github.svg') no-repeat center / contain;
-    mask: url('../assets/svgs/icon-github.svg') no-repeat center / contain;
+    -webkit-mask: url('assets/svgs/icon-github.svg') no-repeat center / contain;
+    mask: url('assets/svgs/icon-github.svg') no-repeat center / contain;
 }
 
 /* Repo Links */
